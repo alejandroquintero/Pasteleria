@@ -25,8 +25,9 @@ SOFTWARE.
 
     var mod = ng.module("photoAlbumModule");
 
-    mod.controller("photoAlbumListCtrl", ["$scope", '$state', 'photoAlbums', '$stateParams','model',
-        function ($scope, $state, photoAlbums, $params, model) {
+    mod.controller("photoAlbumListCtrl", ["$scope", '$state', 'photoAlbums', '$stateParams','model','$controller',
+        function ($scope, $state, photoAlbums, $params, model,$controller) {
+            $controller("authController",{$scope:$scope});
             $scope.model = model;
             $scope.records = photoAlbums;
             $scope.buttons = ['detail'];

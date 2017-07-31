@@ -25,8 +25,9 @@ SOFTWARE.
 
     var mod = ng.module("clientModule");
 
-    mod.controller("clientListCtrl", ["$scope", '$state', 'clients', '$stateParams','model',
-        function ($scope, $state, clients, $params, model) {
+    mod.controller("clientListCtrl", ["$scope", '$state', 'clients', '$stateParams','model','$controller',
+        function ($scope, $state, clients, $params, model,$controller) {
+            $controller("authController",{$scope:$scope});
             $scope.model = model;
             $scope.records = clients;
             $scope.buttons = ['none'];

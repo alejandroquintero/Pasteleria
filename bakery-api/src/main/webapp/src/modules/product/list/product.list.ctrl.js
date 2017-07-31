@@ -25,12 +25,13 @@ SOFTWARE.
 
     var mod = ng.module("productModule");
 
-    mod.controller("productListCtrl", ["$scope", '$state', 'products', '$stateParams','model',
-        function ($scope, $state, products, $params, model) {
+    mod.controller("productListCtrl", ["$scope", '$state', 'products', '$stateParams','model','$controller',
+        function ($scope, $state, products, $params, model,$controller) {
+            $controller("authController",{$scope:$scope});
             $scope.model = model;
             $scope.records = products;
             $scope.buttons = ['detail'];
-
+            console.log(JSON.stringify($scope.isAuthenticated()));
             //Paginación
             this.itemsPerPage = $params.limit;
             this.currentPage = $params.page;

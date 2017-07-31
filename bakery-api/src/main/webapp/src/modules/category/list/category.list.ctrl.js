@@ -25,8 +25,9 @@ SOFTWARE.
 
     var mod = ng.module("categoryModule");
 
-    mod.controller("categoryListCtrl", ["$scope", '$state', 'categorys', '$stateParams','model',
-        function ($scope, $state, categorys, $params, model) {
+    mod.controller("categoryListCtrl", ["$scope", '$state', 'categorys', '$stateParams','model','$controller',
+        function ($scope, $state, categorys, $params, model,$controller) {
+            $controller("authController",{$scope:$scope});
             $scope.model = model;
             $scope.records = categorys;
             $scope.buttons = ['none'];

@@ -23,7 +23,7 @@ SOFTWARE.
 -->
 <header>
     <div ncy-breadcrumb></div>
-    <toolbar name="model.name" display-name="model.displayName" actions='actions'></toolbar>
+    <toolbar ng-if="isAuthenticated()" name="model.name" display-name="model.displayName" actions='actions'></toolbar>
 </header>
 <gallery  name="model.name" fields="model.fields" records="records" actions="recordActions" buttons="buttons"></gallery>
 <pagination ng-if="ctrl.itemsPerPage < ctrl.totalItems"
